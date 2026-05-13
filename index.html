@@ -129,6 +129,7 @@ color:white;
 padding:6px 10px;
 border-radius:10px;
 cursor:pointer;
+font-weight:700;
 }
 
 .total{
@@ -147,6 +148,12 @@ background:linear-gradient(90deg,#ff1f1f,#d40000);
 color:white;
 font-weight:800;
 cursor:pointer;
+transition:.25s;
+}
+
+.checkout:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(255,0,0,.25);
 }
 
 .top-bar{
@@ -334,6 +341,87 @@ opacity:1;
 bottom:40px;
 }
 
+.checkout-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:10000;
+padding:20px;
+}
+
+.checkout-box{
+width:100%;
+max-width:650px;
+background:#141414;
+border-radius:30px;
+padding:35px;
+border:1px solid rgba(255,255,255,.06);
+box-shadow:0 25px 60px rgba(0,0,0,.6);
+}
+
+.checkout-box h2{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.checkout-box p{
+color:#c9c9c9;
+line-height:1.7;
+margin-bottom:15px;
+}
+
+.checkout-warning{
+background:#1f1f1f;
+padding:18px;
+border-radius:18px;
+margin:20px 0;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.checkout-buttons{
+display:flex;
+gap:15px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.checkout-btn{
+flex:1;
+min-width:220px;
+padding:16px;
+border:none;
+border-radius:16px;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
+}
+
+.deposit-btn{
+background:linear-gradient(90deg,#ff1f1f,#d40000);
+color:white;
+}
+
+.free-btn{
+background:#242424;
+color:white;
+}
+
+.close-btn{
+margin-top:15px;
+background:none;
+border:none;
+color:#999;
+cursor:pointer;
+font-size:.95rem;
+}
+
+.checkout-btn:hover{
+transform:translateY(-2px);
+}
+
 @media(max-width:900px){
 
 .hero-content h1{
@@ -346,6 +434,10 @@ top:auto;
 right:auto;
 width:100%;
 margin-bottom:35px;
+}
+
+.checkout-buttons{
+flex-direction:column;
 }
 
 }
@@ -386,7 +478,7 @@ Custom E-Bike • E-Scooter • MTB Electronics & Performance Parts
 Total: $<span id="cart-total">0</span> AUD
 </div>
 
-<button class="checkout" onclick="checkout()">
+<button class="checkout" onclick="openCheckout()">
 Checkout
 </button>
 
@@ -426,7 +518,7 @@ placeholder="Search products..."
 
 <div class="card" data-category="electronics">
 <div class="badge">TESTED</div>
-<img src="controller.jpg">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>30H Controller</h3>
 <p>High performance controller.</p>
@@ -437,57 +529,13 @@ placeholder="Search products..."
 </div>
 
 <div class="card" data-category="electronics">
-<img src="ukc1.jpg">
+<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>UKC1+ Screen</h3>
 <p>Works, needs plug.</p>
 <div class="price">$60 AUD</div>
 <div class="stock">Low Stock</div>
 <button onclick="addToCart('UKC1+ Screen',60)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="electronics">
-<img src="sw900.jpg">
-<div class="card-content">
-<h3>SW900 Screen</h3>
-<p>Minor scratches.</p>
-<div class="price">$50 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('SW900 Screen',50)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="surronthrottle.jpg">
-<div class="card-content">
-<h3>Surron Throttle</h3>
-<p>Responsive throttle.</p>
-<div class="price">$40 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Surron Throttle',40)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="shimanobrakes.jpg">
-<div class="card-content">
-<h3>Shimano / Tektro Brakes</h3>
-<p>Good for spare levers/cables.</p>
-<div class="price">$25 AUD</div>
-<div class="stock">Spare Parts</div>
-<button onclick="addToCart('Shimano Brakes',25)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Bike & BMX Bars</h3>
-<p>Norco, Bontrager, Merida & BMX bars.</p>
-<div class="price">$35 AUD</div>
-<div class="stock">Multiple Available</div>
-<button onclick="addToCart('Bike Bars',35)">Add To Cart</button>
 </div>
 </div>
 
@@ -503,72 +551,6 @@ placeholder="Search products..."
 </div>
 
 <div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>MTX Stickers</h3>
-<p>Fresh sticker set.</p>
-<div class="price">$10 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('MTX Stickers',10)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Controller Bags</h3>
-<p>New controller/storage bags.</p>
-<div class="price">$25 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Controller Bags',25)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Cable Management Kit</h3>
-<p>Clean cable routing accessories.</p>
-<div class="price">$15 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Cable Management Kit',15)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1529429617124-aee711a5ac1c?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Battery Bag</h3>
-<p>Battery storage bag.</p>
-<div class="price">$35 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Battery Bag',35)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Polygon Seats</h3>
-<p>Comfort MTB seats.</p>
-<div class="price">$30 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Polygon Seats',30)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="electronics">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Screen Mounts</h3>
-<p>Fits SW900 & UKC1.</p>
-<div class="price">$12 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Screen Mounts',12)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
 <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop">
 <div class="card-content">
 <h3>Etook U Lock</h3>
@@ -576,61 +558,6 @@ placeholder="Search products..."
 <div class="price">$40 AUD</div>
 <div class="stock">In Stock</div>
 <button onclick="addToCart('Etook U Lock',40)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>11 Inch E-Scooter Tube</h3>
-<p>Replacement inner tube.</p>
-<div class="price">$15 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('11 Inch Tube',15)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Lock On Grips</h3>
-<p>Comfort grips.</p>
-<div class="price">$20 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Lock On Grips',20)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="accessories">
-<img src="https://images.unsplash.com/photo-1581091215367-59ab6dcef10b?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Wiring Tape</h3>
-<p>Electrical tape.</p>
-<div class="price">$5 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Wiring Tape',5)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>145mm E-Scooter Disk Rotor</h3>
-<p>Brake rotor replacement.</p>
-<div class="price">$18 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('145mm Rotor',18)">Add To Cart</button>
-</div>
-</div>
-
-<div class="card" data-category="parts">
-<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
-<div class="card-content">
-<h3>Mukuta 10+ LED Side Covers</h3>
-<p>Front & rear side cover set.</p>
-<div class="price">$55 AUD</div>
-<div class="stock">In Stock</div>
-<button onclick="addToCart('Mukuta Side Covers',55)">Add To Cart</button>
 </div>
 </div>
 
@@ -659,6 +586,61 @@ placeholder="Search products..."
 
 <div class="popup" id="popup">
 Added To Cart
+</div>
+
+<div class="checkout-modal" id="checkoutModal">
+
+<div class="checkout-box">
+
+<h2>WBX Ordering Process</h2>
+
+<p>
+At WBX Electrical, some products are sourced through suppliers and custom orders.
+Because supplier stock can occasionally be unreliable or delayed, all orders are manually confirmed before final payment is required.
+</p>
+
+<div class="checkout-warning">
+
+<p>
+✅ You may place your order completely FREE with no payment upfront.
+</p>
+
+<p>
+✅ You may also choose to place a deposit to secure stock earlier.
+</p>
+
+<p>
+✅ If any item becomes unavailable or out of stock, ALL deposits will be fully refunded.
+</p>
+
+<p>
+✅ Once your order is confirmed and ready, you will be contacted to transfer payment.
+</p>
+
+</div>
+
+<p>
+By continuing, you acknowledge that your order may require manual confirmation depending on supplier availability and stock.
+</p>
+
+<div class="checkout-buttons">
+
+<button class="checkout-btn deposit-btn" onclick="sendOrder('Deposit Requested')">
+Place Order + Deposit
+</button>
+
+<button class="checkout-btn free-btn" onclick="sendOrder('Free Reservation')">
+Place Free Order
+</button>
+
+</div>
+
+<button class="close-btn" onclick="closeCheckout()">
+Close
+</button>
+
+</div>
+
 </div>
 
 <script>
@@ -725,21 +707,58 @@ cartTotal.innerText=total;
 
 updateCart();
 
-function checkout(){
+function openCheckout(){
 
 if(cart.length===0){
 alert('Cart is empty');
 return;
 }
 
+document.getElementById('checkoutModal').style.display='flex';
+
+}
+
+function closeCheckout(){
+
+document.getElementById('checkoutModal').style.display='none';
+
+}
+
+function sendOrder(type){
+
 let items='';
 
+let total=0;
+
 cart.forEach(item=>{
-items += `${item.name} - $${item.price}%0A`;
+
+items += `${item.name} - $${item.price}\n`;
+
+total += item.price;
+
 });
 
+const body = `
+WBX Electrical Order
+
+Order Type:
+${type}
+
+Items:
+${items}
+
+Total:
+$${total} AUD
+
+Customer understands:
+- Orders may require manual confirmation
+- Suppliers may occasionally be unreliable
+- Deposits are refundable if items are unavailable
+- Payment transfer occurs once order is ready
+`;
+
 window.location.href =
-`mailto:wirvi10@gmail.com?subject=WBX Electrical Order&body=${items}`;
+`mailto:wirvi10@gmail.com?subject=WBX Electrical Order&body=${encodeURIComponent(body)}`;
 
 }
 
@@ -765,7 +784,7 @@ const text=card.innerText.toLowerCase();
 
 card.style.display =
 text.includes(value)
-? 'block'
+? ''
 : 'none';
 
 });
@@ -783,12 +802,12 @@ event.target.classList.add('active');
 document.querySelectorAll('.card').forEach(card=>{
 
 if(category==='all'){
-card.style.display = '';
+card.style.display='';
 }
 else{
 card.style.display =
 card.dataset.category===category
-? 'block'
+? ''
 : 'none';
 }
 

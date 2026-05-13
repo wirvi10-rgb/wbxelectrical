@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WBX Electrical</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:
+radial-gradient(circle at top,#2b0000 0%,#0f0f0f 35%);
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(10,10,10,.88);
+backdrop-filter:blur(16px);
+padding:20px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(90deg,#ff0000,#ff7b7b);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#cfcfcf;
+font-weight:600;
+transition:.25s;
+}
+
+nav a:hover{
+color:#ff4040;
+}
+
+.hero{
+height:72vh;
+background:
+linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.85)),
+url('https://tse4.mm.bing.net/th/id/OIP.1FYRnN6853POqi0DTc2OMAHaF7?rs=1&pid=ImgDetMain&o=7&rm=3')
+center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:5rem;
+font-weight:800;
+line-height:1;
+max-width:1000px;
+letter-spacing:-2px;
+}
+
+.hero-content p{
+margin-top:20px;
+font-size:1.2rem;
+color:#d1d1d1;
+max-width:750px;
+}
+
+.container{
+max-width:1600px;
+margin:auto;
+padding:50px 25px;
+}
+
+.cart{
+position:fixed;
+top:100px;
+right:20px;
+width:330px;
+max-height:80vh;
+overflow:auto;
+background:rgba(15,15,15,.96);
+backdrop-filter:blur(18px);
+padding:24px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.06);
+z-index:999;
+}
+
+.cart h2{
+margin-bottom:20px;
+}
+
+.cart-item{
+background:#1f1f1f;
+padding:12px;
+border-radius:14px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.remove-btn{
+background:red;
+border:none;
+color:white;
+padding:6px 10px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.total{
+margin-top:15px;
+font-size:1.2rem;
+font-weight:800;
+}
+
+.checkout{
+width:100%;
+margin-top:15px;
+padding:15px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#ff1f1f,#d40000);
+color:white;
+font-weight:800;
+cursor:pointer;
+}
+
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.search{
+background:#181818;
+border:none;
+padding:16px 20px;
+border-radius:16px;
+width:340px;
+color:white;
+font-size:1rem;
+outline:none;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+padding:13px 18px;
+border:none;
+border-radius:14px;
+background:#1b1b1b;
+color:white;
+cursor:pointer;
+font-weight:700;
+transition:.25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+background:#ff1f1f;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
+}
+
+.card{
+background:linear-gradient(180deg,#191919,#121212);
+border-radius:28px;
+overflow:hidden;
+transition:.35s;
+position:relative;
+border:1px solid rgba(255,255,255,.05);
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:rgba(255,0,0,.35);
+box-shadow:
+0 20px 40px rgba(0,0,0,.5),
+0 0 30px rgba(255,0,0,.1);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+transition:.45s;
+}
+
+.card:hover img{
+transform:scale(1.05);
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#ff0000;
+padding:8px 14px;
+border-radius:999px;
+font-size:.75rem;
+font-weight:800;
+z-index:2;
+}
+
+.card-content{
+padding:22px;
+}
+
+.card h3{
+font-size:1.4rem;
+margin-bottom:10px;
+}
+
+.card p{
+color:#bdbdbd;
+line-height:1.5;
+margin-bottom:14px;
+}
+
+.price{
+font-size:1.2rem;
+font-weight:800;
+color:#ff4d4d;
+margin-bottom:14px;
+}
+
+.stock{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:#242424;
+font-size:.8rem;
+margin-bottom:20px;
+}
+
+.card button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#ff1f1f,#d40000);
+color:white;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
+}
+
+.card button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(255,0,0,.3);
+}
+
+.contact{
+margin-top:80px;
+padding:50px;
+background:linear-gradient(180deg,#1a1a1a,#131313);
+border-radius:35px;
+text-align:center;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.contact h2{
+font-size:2.2rem;
+margin-bottom:15px;
+}
+
+.contact p{
+color:#bdbdbd;
+margin:10px 0;
+}
+
+footer{
+margin-top:70px;
+padding:35px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
+color:#777;
+}
+
+.popup{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#ff1f1f;
+padding:16px 24px;
+border-radius:16px;
+font-weight:700;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:9999;
+}
+
+.popup.show{
+opacity:1;
+bottom:40px;
+}
+
+@media(max-width:900px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+.cart{
+position:relative;
+top:auto;
+right:auto;
+width:100%;
+margin-bottom:35px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">WBX Electrical</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>WBX Electrical Performance Parts</h1>
+
+<p>
+Custom E-Bike • E-Scooter • MTB Electronics & Performance Parts
+</p>
+</div>
+</section>
+
+<div class="container">
+
+<div class="cart">
+
+<h2>🛒 Cart (<span id="cart-count">0</span>)</h2>
+
+<div id="cart-items"></div>
+
+<div class="total">
+Total: $<span id="cart-total">0</span> AUD
+</div>
+
+<button class="checkout" onclick="checkout()">
+Checkout
+</button>
+
+</div>
+
+<div class="top-bar">
+
+<input
+type="text"
+class="search"
+id="search"
+placeholder="Search products..."
+>
+
+<div class="filters">
+<button class="filter-btn active" onclick="filterProducts('all',event)">All</button>
+<button class="filter-btn" onclick="filterProducts('electronics',event)">Electronics</button>
+<button class="filter-btn" onclick="filterProducts('parts',event)">Parts</button>
+<button class="filter-btn" onclick="filterProducts('accessories',event)">Accessories</button>
+</div>
+
+</div>
+
+<div class="products">
+
+<div class="card" data-category="electronics">
+<div class="badge">TESTED</div>
+<img src="https://images.unsplash.com/photo-1609592424823-1fcd7d3f7628?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>3KW 80AH Battery</h3>
+<p>High power battery setup.</p>
+<div class="price">$450 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('3KW 80AH Battery',450)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="electronics">
+<div class="badge">TESTED</div>
+<img src="controller.jpg">
+<div class="card-content">
+<h3>30H Controller</h3>
+<p>High performance controller.</p>
+<div class="price">$120 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('30H Controller',120)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="electronics">
+<img src="ukc1.jpg">
+<div class="card-content">
+<h3>UKC1+ Screen</h3>
+<p>Works, needs plug.</p>
+<div class="price">$60 AUD</div>
+<div class="stock">Low Stock</div>
+<button onclick="addToCart('UKC1+ Screen',60)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="electronics">
+<img src="sw900.jpg">
+<div class="card-content">
+<h3>SW900 Screen</h3>
+<p>Minor scratches.</p>
+<div class="price">$50 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('SW900 Screen',50)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="surronthrottle.jpg">
+<div class="card-content">
+<h3>Surron Throttle</h3>
+<p>Responsive throttle.</p>
+<div class="price">$40 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Surron Throttle',40)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="shimanobrakes.jpg">
+<div class="card-content">
+<h3>Shimano / Tektro Brakes</h3>
+<p>Good for spare levers/cables.</p>
+<div class="price">$25 AUD</div>
+<div class="stock">Spare Parts</div>
+<button onclick="addToCart('Shimano Brakes',25)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Bike & BMX Bars</h3>
+<p>Norco, Bontrager, Merida & BMX bars.</p>
+<div class="price">$35 AUD</div>
+<div class="stock">Multiple Available</div>
+<button onclick="addToCart('Bike Bars',35)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>CRF50 Seat</h3>
+<p>Includes bolts.</p>
+<div class="price">$70 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('CRF50 Seat',70)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>MTX Stickers</h3>
+<p>Fresh sticker set.</p>
+<div class="price">$10 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('MTX Stickers',10)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Controller Bags</h3>
+<p>New controller/storage bags.</p>
+<div class="price">$25 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Controller Bags',25)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Cable Management Kit</h3>
+<p>Clean cable routing accessories.</p>
+<div class="price">$15 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Cable Management Kit',15)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1529429617124-aee711a5ac1c?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Battery Bag</h3>
+<p>Battery storage bag.</p>
+<div class="price">$35 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Battery Bag',35)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Polygon Seats</h3>
+<p>Comfort MTB seats.</p>
+<div class="price">$30 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Polygon Seats',30)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="electronics">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Screen Mounts</h3>
+<p>Fits SW900 & UKC1.</p>
+<div class="price">$12 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Screen Mounts',12)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Etook U Lock</h3>
+<p>Heavy-duty lock.</p>
+<div class="price">$40 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Etook U Lock',40)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>11 Inch E-Scooter Tube</h3>
+<p>Replacement inner tube.</p>
+<div class="price">$15 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('11 Inch Tube',15)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Lock On Grips</h3>
+<p>Comfort grips.</p>
+<div class="price">$20 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Lock On Grips',20)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="accessories">
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6dcef10b?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Wiring Tape</h3>
+<p>Electrical tape.</p>
+<div class="price">$5 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Wiring Tape',5)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>145mm E-Scooter Disk Rotor</h3>
+<p>Brake rotor replacement.</p>
+<div class="price">$18 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('145mm Rotor',18)">Add To Cart</button>
+</div>
+</div>
+
+<div class="card" data-category="parts">
+<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Mukuta 10+ LED Side Covers</h3>
+<p>Front & rear side cover set.</p>
+<div class="price">$55 AUD</div>
+<div class="stock">In Stock</div>
+<button onclick="addToCart('Mukuta Side Covers',55)">Add To Cart</button>
+</div>
+</div>
+
+</div>
+
+<div class="contact">
+<h2>WBX Electrical</h2>
+
+<p>Premium E-Bike, E-Scooter & MTB Parts</p>
+
+<br>
+
+<p>Snapchat: nycrpx</p>
+<p>Instagram: nycrpx</p>
+<p>Tiktok: jema_fw</p>
+<p>Discord: fw.dec1xx</p>
+<p>Email: wirvi10@gmail.com</p>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 WBX Electrical
+</footer>
+
+<div class="popup" id="popup">
+Added To Cart
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function saveCart(){
+localStorage.setItem('cart',JSON.stringify(cart));
+}
+
+function addToCart(name,price){
+
+cart.push({name,price});
+
+saveCart();
+updateCart();
+
+showPopup();
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems=document.getElementById('cart-items');
+const cartCount=document.getElementById('cart-count');
+const cartTotal=document.getElementById('cart-total');
+
+cartItems.innerHTML='';
+
+let total=0;
+
+cart.forEach((item,index)=>{
+
+total+=item.price;
+
+cartItems.innerHTML += `
+<div class="cart-item">
+<div>
+${item.name}<br>
+$${item.price}
+</div>
+
+<button class="remove-btn" onclick="removeItem(${index})">
+X
+</button>
+</div>
+`;
+
+});
+
+cartCount.innerText=cart.length;
+cartTotal.innerText=total;
+
+}
+
+updateCart();
+
+function checkout(){
+
+if(cart.length===0){
+alert('Cart is empty');
+return;
+}
+
+let items='';
+
+cart.forEach(item=>{
+items += `${item.name} - $${item.price}%0A`;
+});
+
+window.location.href =
+`mailto:wirvi10@gmail.com?subject=WBX Electrical Order&body=${items}`;
+
+}
+
+function showPopup(){
+
+const popup=document.getElementById('popup');
+
+popup.classList.add('show');
+
+setTimeout(()=>{
+popup.classList.remove('show');
+},2000);
+
+}
+
+document.getElementById('search').addEventListener('input',function(){
+
+const value=this.value.toLowerCase();
+
+document.querySelectorAll('.card').forEach(card=>{
+
+const text=card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(value)
+? 'block'
+: 'none';
+
+});
+
+});
+
+function filterProducts(category,event){
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.classList.remove('active');
+});
+
+event.target.classList.add('active');
+
+document.querySelectorAll('.card').forEach(card=>{
+
+if(category==='all'){
+card.style.display='block';
+}
+else{
+card.style.display =
+card.dataset.category===category
+? 'block'
+: 'none';
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

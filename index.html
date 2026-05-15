@@ -6,9 +6,6 @@
 
 <title>WBX Electrical</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -23,7 +20,7 @@ scroll-behavior:smooth;
 
 body{
 background:
-radial-gradient(circle at top,#2b0000 0%,#111111 30%);
+radial-gradient(circle at top,#2a0000 0%,#111111 35%);
 color:white;
 overflow-x:hidden;
 }
@@ -34,19 +31,19 @@ header{
 position:sticky;
 top:0;
 z-index:1000;
-background:rgba(10,10,10,.85);
-backdrop-filter:blur(15px);
+background:rgba(10,10,10,.88);
+backdrop-filter:blur(14px);
 padding:20px 35px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid rgba(255,255,255,.06);
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .logo{
 font-size:2rem;
 font-weight:800;
-background:linear-gradient(90deg,#ff1f1f,#ff7b7b);
+background:linear-gradient(90deg,#ff1f1f,#ff8080);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -58,7 +55,7 @@ gap:25px;
 
 nav a{
 text-decoration:none;
-color:#d3d3d3;
+color:#d0d0d0;
 font-weight:600;
 transition:.25s;
 }
@@ -70,9 +67,9 @@ color:#ff4040;
 /* HERO */
 
 .hero{
-height:78vh;
+height:85vh;
 background:
-linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.85)),
+linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.88)),
 url('https://images.unsplash.com/photo-1511994298241-608e28f14fde?q=80&w=1600&auto=format&fit=crop')
 center/cover;
 display:flex;
@@ -83,7 +80,7 @@ padding:20px;
 }
 
 .hero-content{
-max-width:900px;
+max-width:950px;
 }
 
 .hero-content h1{
@@ -94,8 +91,8 @@ letter-spacing:-2px;
 }
 
 .hero-content p{
-margin-top:20px;
-font-size:1.15rem;
+margin-top:24px;
+font-size:1.2rem;
 color:#cfcfcf;
 line-height:1.7;
 }
@@ -109,7 +106,7 @@ flex-wrap:wrap;
 }
 
 .hero-btn{
-padding:16px 30px;
+padding:17px 32px;
 border:none;
 border-radius:18px;
 font-weight:800;
@@ -124,9 +121,9 @@ color:white;
 }
 
 .secondary-btn{
-background:#1f1f1f;
+background:#1e1e1e;
 color:white;
-border:1px solid rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.05);
 }
 
 .hero-btn:hover{
@@ -135,284 +132,173 @@ transform:translateY(-3px);
 
 /* TRUST */
 
-.trust-bar{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:40px 25px;
-max-width:1400px;
+.trust{
+max-width:1450px;
 margin:auto;
+padding:40px 25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
 }
 
-.trust-item{
-background:#171717;
-padding:22px;
-border-radius:22px;
+.trust-card{
+background:#181818;
+padding:25px;
+border-radius:25px;
 border:1px solid rgba(255,255,255,.05);
-text-align:center;
 }
 
-.trust-item h3{
-margin-bottom:10px;
+.trust-card h3{
+margin-bottom:12px;
 color:#ff4d4d;
 }
 
 /* MAIN */
 
 .container{
-max-width:1500px;
+max-width:1450px;
 margin:auto;
 padding:40px 25px;
 }
 
-/* CART */
+/* SECTION */
 
-.cart{
-position:fixed;
-top:100px;
-right:20px;
-width:320px;
-max-height:80vh;
-overflow:auto;
-background:rgba(15,15,15,.97);
-padding:24px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,.06);
-z-index:999;
-backdrop-filter:blur(14px);
+.section-title{
+font-size:2.8rem;
+margin-bottom:18px;
 }
 
-.cart h2{
+.section-text{
+color:#c4c4c4;
+line-height:1.8;
+max-width:850px;
+margin-bottom:50px;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+margin-bottom:80px;
+}
+
+.service-card{
+background:linear-gradient(180deg,#191919,#131313);
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.05);
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+border-color:rgba(255,0,0,.2);
+}
+
+.service-card h3{
+font-size:1.5rem;
+margin-bottom:15px;
+}
+
+.service-card p{
+color:#c3c3c3;
+line-height:1.7;
+}
+
+/* REQUEST FORM */
+
+.request-section{
+background:linear-gradient(180deg,#191919,#131313);
+padding:45px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,.05);
+margin-bottom:80px;
+}
+
+.request-section h2{
+font-size:2.5rem;
 margin-bottom:20px;
 }
 
-.cart-item{
-background:#1f1f1f;
-padding:12px;
-border-radius:14px;
-margin-bottom:12px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.request-section p{
+color:#c3c3c3;
+margin-bottom:30px;
+line-height:1.7;
 }
 
-.remove-btn{
-background:#ff1f1f;
-border:none;
-color:white;
-padding:7px 10px;
-border-radius:10px;
-cursor:pointer;
-font-weight:700;
-}
-
-.total{
-margin-top:18px;
-font-size:1.2rem;
-font-weight:800;
-}
-
-.checkout{
-width:100%;
-margin-top:18px;
-padding:16px;
-border:none;
-border-radius:16px;
-background:linear-gradient(90deg,#ff1f1f,#d40000);
-color:white;
-font-weight:800;
-cursor:pointer;
-transition:.25s;
-}
-
-.checkout:hover{
-transform:translateY(-2px);
-}
-
-/* SEARCH */
-
-.top-bar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:35px;
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:20px;
-flex-wrap:wrap;
 }
 
-.search{
-background:#181818;
+.input,
+textarea{
+width:100%;
+padding:18px;
 border:none;
-padding:16px 20px;
-border-radius:16px;
-width:340px;
+border-radius:18px;
+background:#101010;
 color:white;
 font-size:1rem;
-outline:none;
-border:1px solid rgba(255,255,255,.06);
-}
-
-.filters{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.filter-btn{
-padding:13px 18px;
-border:none;
-border-radius:14px;
-background:#1b1b1b;
-color:white;
-cursor:pointer;
-font-weight:700;
-transition:.25s;
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-background:#ff1f1f;
-}
-
-/* PRODUCTS */
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-gap:28px;
-}
-
-.card{
-background:linear-gradient(180deg,#191919,#121212);
-border-radius:28px;
-overflow:hidden;
-transition:.35s;
-position:relative;
 border:1px solid rgba(255,255,255,.05);
+outline:none;
 }
 
-.card:hover{
-transform:translateY(-8px);
-border-color:rgba(255,0,0,.3);
-box-shadow:0 20px 40px rgba(0,0,0,.45);
+textarea{
+min-height:160px;
+resize:vertical;
+margin-top:20px;
 }
 
-.card img{
-width:100%;
-height:240px;
-object-fit:cover;
-}
-
-.badge{
-position:absolute;
-top:15px;
-left:15px;
-background:#ff1f1f;
-padding:8px 14px;
-border-radius:999px;
-font-size:.75rem;
-font-weight:800;
-}
-
-.card-content{
-padding:22px;
-}
-
-.card h3{
-font-size:1.4rem;
-margin-bottom:10px;
-}
-
-.card p{
-color:#c2c2c2;
-line-height:1.6;
-margin-bottom:14px;
-}
-
-.price{
-font-size:1.2rem;
-font-weight:800;
-color:#ff5050;
-margin-bottom:14px;
-}
-
-.stock{
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-background:#242424;
-font-size:.8rem;
-margin-bottom:20px;
-}
-
-.card button{
-width:100%;
-padding:15px;
+.submit-btn{
+margin-top:25px;
+padding:18px 30px;
 border:none;
-border-radius:16px;
+border-radius:18px;
 background:linear-gradient(90deg,#ff1f1f,#d40000);
 color:white;
 font-weight:800;
 cursor:pointer;
+font-size:1rem;
 transition:.25s;
 }
 
-.card button:hover{
+.submit-btn:hover{
 transform:translateY(-2px);
 }
 
 /* CONTACT */
 
 .contact{
-margin-top:80px;
-padding:55px;
-background:linear-gradient(180deg,#1b1b1b,#131313);
+background:linear-gradient(180deg,#1a1a1a,#131313);
+padding:50px;
 border-radius:35px;
-text-align:center;
 border:1px solid rgba(255,255,255,.05);
+text-align:center;
 }
 
 .contact h2{
 font-size:2.4rem;
-margin-bottom:15px;
+margin-bottom:18px;
 }
 
 .contact p{
-color:#bdbdbd;
-margin:10px 0;
+color:#c4c4c4;
+margin:12px 0;
 line-height:1.7;
 }
 
 /* FOOTER */
 
 footer{
-margin-top:60px;
+margin-top:70px;
 padding:35px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.05);
 color:#777;
-}
-
-/* POPUP */
-
-.popup{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:#ff1f1f;
-padding:16px 24px;
-border-radius:16px;
-font-weight:700;
-opacity:0;
-pointer-events:none;
-transition:.3s;
-z-index:9999;
-}
-
-.popup.show{
-opacity:1;
-bottom:40px;
 }
 
 /* MOBILE */
@@ -423,12 +309,8 @@ bottom:40px;
 font-size:3rem;
 }
 
-.cart{
-position:relative;
-top:auto;
-right:auto;
-width:100%;
-margin-bottom:35px;
+.form-grid{
+grid-template-columns:1fr;
 }
 
 }
@@ -446,7 +328,8 @@ WBX Electrical
 
 <nav>
 <a href="#">Home</a>
-<a href="#products">Products</a>
+<a href="#services">Services</a>
+<a href="#request">Request Parts</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -457,18 +340,22 @@ WBX Electrical
 <div class="hero-content">
 
 <h1>
-Performance MTB & E-Bike Parts
+Custom E-Bike & MTB Parts Sourcing
 </h1>
 
 <p>
-Premium controllers, displays, throttles, brakes and upgrade parts for custom MTB and E-Bike builds.
+Controllers • Displays • Throttles • Brakes • Upgrade Parts
+
+<br><br>
+
+Tell us your setup and we’ll help source compatible parts for your build.
 </p>
 
 <div class="hero-buttons">
 
 <button class="hero-btn primary-btn"
-onclick="document.getElementById('products').scrollIntoView()">
-Shop Now
+onclick="document.getElementById('request').scrollIntoView()">
+Request Parts
 </button>
 
 <button class="hero-btn secondary-btn"
@@ -482,332 +369,114 @@ Contact
 
 </section>
 
-<section class="trust-bar">
+<section class="trust">
 
-<div class="trust-item">
-<h3>Tracked Shipping</h3>
-<p>Tracking provided on all orders.</p>
+<div class="trust-card">
+<h3>Compatibility Help</h3>
+<p>
+We help identify compatible upgrade parts for your setup.
+</p>
 </div>
 
-<div class="trust-item">
-<h3>Secure Payments</h3>
-<p>Safe checkout process and order confirmation.</p>
+<div class="trust-card">
+<h3>Custom Sourcing</h3>
+<p>
+Can’t find a part? We help source hard-to-find components.
+</p>
 </div>
 
-<div class="trust-item">
-<h3>Fast Support</h3>
-<p>Quick response support through email and Instagram.</p>
+<div class="trust-card">
+<h3>Australia Based</h3>
+<p>
+Independent MTB & E-Bike parts sourcing service.
+</p>
 </div>
 
-<div class="trust-item">
-<h3>Australian Owned</h3>
-<p>Independent performance parts store based in Australia.</p>
+<div class="trust-card">
+<h3>Direct Support</h3>
+<p>
+Talk directly with us about your build and upgrades.
+</p>
 </div>
 
 </section>
 
 <div class="container">
 
-<div class="cart">
-
-<h2>
-🛒 Cart (<span id="cart-count">0</span>)
+<h2 class="section-title" id="services">
+What We Help Source
 </h2>
 
-<div id="cart-items"></div>
+<p class="section-text">
+WBX Electrical helps source and recommend compatible MTB and E-Bike parts for custom builds, conversion kits and upgrades.
+</p>
 
-<div class="total">
-Total: $<span id="cart-total">0</span> AUD
+<div class="services">
+
+<div class="service-card">
+<h3>Controllers & Displays</h3>
+<p>
+High performance controllers, SW900 displays, UKC1 units and wiring components.
+</p>
 </div>
 
-<button class="checkout">
-Checkout Soon
-</button>
+<div class="service-card">
+<h3>Throttle & Brake Upgrades</h3>
+<p>
+Throttle replacements, brake systems, levers and riding upgrades.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Custom Build Support</h3>
+<p>
+Help with conversion kits, MTB builds, compatibility and sourcing rare parts.
+</p>
+</div>
 
 </div>
 
-<div class="top-bar" id="products">
+<section class="request-section" id="request">
+
+<h2>
+Request Parts
+</h2>
+
+<p>
+Tell us about your setup and what parts you’re looking for.
+We’ll contact you with compatible options and pricing.
+</p>
+
+<div class="form-grid">
 
 <input
+class="input"
+id="bike"
 type="text"
-class="search"
-id="search"
-placeholder="Search products..."
+placeholder="Bike / Conversion Kit Model"
 >
 
-<div class="filters">
+<input
+class="input"
+id="voltage"
+type="text"
+placeholder="Voltage (48V / 52V etc)"
+>
 
-<button class="filter-btn active"
-onclick="filterProducts('all',event)">
-All
+</div>
+
+<textarea
+id="parts"
+placeholder="What parts are you looking for? Include as much detail as possible."
+></textarea>
+
+<button
+class="submit-btn"
+onclick="sendRequest()">
+Send Request
 </button>
 
-<button class="filter-btn"
-onclick="filterProducts('electronics',event)">
-Electronics
-</button>
-
-<button class="filter-btn"
-onclick="filterProducts('parts',event)">
-Parts
-</button>
-
-<button class="filter-btn"
-onclick="filterProducts('accessories',event)">
-Accessories
-</button>
-
-</div>
-
-</div>
-
-<div class="products">
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="electronics">
-
-<div class="badge">
-BEST SELLER
-</div>
-
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>SW900 Display</h3>
-
-<p>
-Compatible with most 48V/52V E-Bike controller systems.
-</p>
-
-<div class="price">
-$50 AUD
-</div>
-
-<div class="stock">
-In Stock
-</div>
-
-<button onclick="addToCart('SW900 Display',50)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="electronics">
-
-<img src="https://images.unsplash.com/photo-1609592424823-1fcd7d3f7628?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>60AH Controller</h3>
-
-<p>
-High performance E-Bike controller setup. Requires connector installation.
-</p>
-
-<div class="price">
-$100 AUD
-</div>
-
-<div class="stock">
-In Stock
-</div>
-
-<button onclick="addToCart('60AH Controller',100)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="electronics">
-
-<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>UKC1+ Display</h3>
-
-<p>
-Display unit for custom E-Bike builds.
-</p>
-
-<div class="price">
-$60 AUD
-</div>
-
-<div class="stock">
-Low Stock
-</div>
-
-<button onclick="addToCart('UKC1+',60)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="parts">
-
-<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>Surron Throttle</h3>
-
-<p>
-Responsive throttle compatible with many custom builds.
-</p>
-
-<div class="price">
-$40 AUD
-</div>
-
-<div class="stock">
-In Stock
-</div>
-
-<button onclick="addToCart('Surron Throttle',40)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="parts">
-
-<img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>MTB Bars</h3>
-
-<p>
-Norco, Bontrager, Merida and BMX bar options available.
-</p>
-
-<div class="price">
-$35 AUD
-</div>
-
-<div class="stock">
-Multiple Available
-</div>
-
-<button onclick="addToCart('MTB Bars',35)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="parts">
-
-<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>Shimano / Tektro Brakes</h3>
-
-<p>
-Replacement brake setups and spare levers.
-</p>
-
-<div class="price">
-$25 AUD
-</div>
-
-<div class="stock">
-Used
-</div>
-
-<button onclick="addToCart('Brakes',25)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="accessories">
-
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>Lock On Grips</h3>
-
-<p>
-Comfort lock-on grips for MTB and E-Bike setups.
-</p>
-
-<div class="price">
-$20 AUD
-</div>
-
-<div class="stock">
-In Stock
-</div>
-
-<button onclick="addToCart('Lock On Grips',20)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="card" data-category="accessories">
-
-<img src="https://images.unsplash.com/photo-1529429617124-aee711a5ac1c?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>Battery Bag</h3>
-
-<p>
-Battery storage and frame mounting bag.
-</p>
-
-<div class="price">
-$35 AUD
-</div>
-
-<div class="stock">
-In Stock
-</div>
-
-<button onclick="addToCart('Battery Bag',35)">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-</div>
+</section>
 
 <div class="contact" id="contact">
 
@@ -816,7 +485,7 @@ WBX Electrical
 </h2>
 
 <p>
-Performance MTB & E-Bike Parts
+Performance MTB & E-Bike Parts Sourcing
 </p>
 
 <br>
@@ -834,7 +503,7 @@ Performance MTB & E-Bike Parts
 </p>
 
 <p>
-Tracked shipping • Manual quality checking • Fast support
+Custom sourcing • Compatibility help • Upgrade support
 </p>
 
 </div>
@@ -845,131 +514,34 @@ Tracked shipping • Manual quality checking • Fast support
 © 2026 WBX Electrical
 </footer>
 
-<div class="popup" id="popup">
-Added To Cart
-</div>
-
 <script>
 
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function sendRequest(){
 
-function saveCart(){
-localStorage.setItem('cart',JSON.stringify(cart));
-}
+const bike =
+document.getElementById('bike').value;
 
-function addToCart(name,price){
+const voltage =
+document.getElementById('voltage').value;
 
-cart.push({name,price});
+const parts =
+document.getElementById('parts').value;
 
-saveCart();
-updateCart();
+const body = `
+WBX Electrical Parts Request
 
-showPopup();
+Bike / Conversion Kit:
+${bike}
 
-}
+Voltage:
+${voltage}
 
-function removeItem(index){
-
-cart.splice(index,1);
-
-saveCart();
-updateCart();
-
-}
-
-function updateCart(){
-
-const cartItems=document.getElementById('cart-items');
-const cartCount=document.getElementById('cart-count');
-const cartTotal=document.getElementById('cart-total');
-
-cartItems.innerHTML='';
-
-let total=0;
-
-cart.forEach((item,index)=>{
-
-total+=item.price;
-
-cartItems.innerHTML += `
-<div class="cart-item">
-
-<div>
-${item.name}<br>
-$${item.price}
-</div>
-
-<button class="remove-btn"
-onclick="removeItem(${index})">
-X
-</button>
-
-</div>
+Requested Parts:
+${parts}
 `;
 
-});
-
-cartCount.innerText=cart.length;
-cartTotal.innerText=total;
-
-}
-
-updateCart();
-
-function showPopup(){
-
-const popup=document.getElementById('popup');
-
-popup.classList.add('show');
-
-setTimeout(()=>{
-popup.classList.remove('show');
-},2000);
-
-}
-
-document.getElementById('search')
-.addEventListener('input',function(){
-
-const value=this.value.toLowerCase();
-
-document.querySelectorAll('.card')
-.forEach(card=>{
-
-const text=card.innerText.toLowerCase();
-
-card.style.display =
-text.includes(value)
-? ''
-: 'none';
-
-});
-
-});
-
-function filterProducts(category,event){
-
-document.querySelectorAll('.filter-btn')
-.forEach(btn=>{
-btn.classList.remove('active');
-});
-
-event.target.classList.add('active');
-
-document.querySelectorAll('.card')
-.forEach(card=>{
-
-if(category==='all'){
-card.style.display='';
-}
-else{
-card.style.display =
-card.dataset.category===category
-? ''
-: 'none';
-}
-
-});
+window.location.href =
+`mailto:support@wbxelectrical.com?subject=WBX Parts Request&body=${encodeURIComponent(body)}`;
 
 }
 

@@ -516,7 +516,7 @@ Custom sourcing • Compatibility help • Upgrade support
 
 <script>
 
-function sendRequest(){
+async function sendRequest(){
 
 const bike =
 document.getElementById('bike').value;
@@ -527,21 +527,19 @@ document.getElementById('voltage').value;
 const parts =
 document.getElementById('parts').value;
 
-const body = `
-WBX Electrical Parts Request
+await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec",{
 
-Bike / Conversion Kit:
-${bike}
+method:"POST",
 
-Voltage:
-${voltage}
+body:JSON.stringify({
+bike,
+voltage,
+parts
+})
 
-Requested Parts:
-${parts}
-`;
+});
 
-window.location.href =
-`mailto:support@wbxelectrical.com?subject=WBX Parts Request&body=${encodeURIComponent(body)}`;
+alert("Request Sent");
 
 }
 

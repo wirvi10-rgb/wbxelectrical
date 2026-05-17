@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WBX Electrical Store</title>
+<title>WBX Electrical</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *{
@@ -14,20 +13,21 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:
-radial-gradient(circle at top,#2b0000 0%,#0f0f0f 35%);
+background:radial-gradient(circle at top,#2a0000 0%,#111111 35%);
 color:white;
 overflow-x:hidden;
 }
 
+/* HEADER */
 header{
 position:sticky;
 top:0;
 z-index:1000;
-background:rgba(10,10,10,.9);
+background:rgba(10,10,10,.88);
 backdrop-filter:blur(14px);
 padding:20px 35px;
 display:flex;
@@ -39,17 +39,30 @@ border-bottom:1px solid rgba(255,255,255,.05);
 .logo{
 font-size:2rem;
 font-weight:800;
-background:linear-gradient(90deg,#ff0000,#ff7b7b);
+background:linear-gradient(90deg,#ff1f1f,#ff8080);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#d0d0d0;
+font-weight:600;
+}
+
+nav a:hover{color:#ff4040}
+
+/* HERO */
 .hero{
-height:60vh;
+height:85vh;
 background:
-linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.85)),
-url('banner.jpg')
-center/cover;
+linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.88)),
+url('hero.jpg') center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -58,588 +71,347 @@ padding:20px;
 }
 
 .hero h1{
-font-size:4.5rem;
+font-size:5rem;
 font-weight:800;
-line-height:1;
 }
 
 .hero p{
 margin-top:20px;
-font-size:1.2rem;
-color:#d0d0d0;
+color:#cfcfcf;
 }
 
+/* CONTAINER */
 .container{
-max-width:1500px;
+max-width:1400px;
 margin:auto;
-padding:50px 25px;
+padding:40px 20px;
+}
+
+/* SECTIONS */
+.section-title{
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+.section-text{
+color:#bdbdbd;
+margin-bottom:40px;
+}
+
+/* TRUST */
+.trust{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin:40px 0;
+}
+
+.trust-card{
+background:#181818;
+padding:20px;
+border-radius:20px;
+}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+margin-bottom:60px;
+}
+
+.service-card{
+background:#151515;
+padding:25px;
+border-radius:25px;
+}
+
+/* STORE */
+.store{
+margin-top:60px;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
 }
 
 .card{
-background:linear-gradient(180deg,#191919,#121212);
-border-radius:28px;
+background:#151515;
+border-radius:20px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.05);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:rgba(255,0,0,.25);
 }
 
 .card img{
 width:100%;
-height:240px;
+height:200px;
 object-fit:cover;
 }
 
 .card-content{
-padding:22px;
-}
-
-.card h3{
-font-size:1.4rem;
-margin-bottom:10px;
-}
-
-.card p{
-color:#bdbdbd;
-line-height:1.6;
-margin-bottom:14px;
+padding:15px;
 }
 
 .price{
-font-size:1.2rem;
-font-weight:800;
 color:#ff4d4d;
-margin-bottom:15px;
+font-weight:800;
+margin:10px 0;
 }
 
-.card button{
+button{
 width:100%;
-padding:15px;
+padding:12px;
 border:none;
-border-radius:16px;
 background:linear-gradient(90deg,#ff1f1f,#d40000);
 color:white;
-font-weight:800;
+font-weight:700;
 cursor:pointer;
-transition:.25s;
+border-radius:12px;
 }
 
-.card button:hover{
-transform:translateY(-2px);
-}
-
+/* CART */
 .cart{
 position:fixed;
-top:100px;
 right:20px;
-width:340px;
-max-height:80vh;
+top:120px;
+width:300px;
+background:#111;
+padding:15px;
+border-radius:20px;
+max-height:70vh;
 overflow:auto;
-background:rgba(15,15,15,.96);
-padding:24px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,.06);
-z-index:999;
-}
-
-.cart h2{
-margin-bottom:20px;
 }
 
 .cart-item{
-background:#1f1f1f;
-padding:12px;
-border-radius:14px;
-margin-bottom:12px;
 display:flex;
 justify-content:space-between;
-align-items:center;
-}
-
-.remove-btn{
-background:red;
-border:none;
-color:white;
-padding:6px 10px;
+background:#222;
+padding:10px;
+margin:8px 0;
 border-radius:10px;
-cursor:pointer;
-font-weight:700;
 }
 
-.total{
-margin-top:15px;
-font-size:1.2rem;
-font-weight:800;
+/* REQUEST */
+.request-section{
+background:#151515;
+padding:40px;
+border-radius:25px;
+margin-top:60px;
 }
 
-.checkout{
+.input,textarea,select{
 width:100%;
-margin-top:15px;
-padding:15px;
-border:none;
-border-radius:16px;
-background:linear-gradient(90deg,#ff1f1f,#d40000);
+padding:12px;
+margin-top:10px;
+background:#0f0f0f;
+border:1px solid #333;
 color:white;
-font-weight:800;
-cursor:pointer;
+border-radius:10px;
 }
 
-.checkout-modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.75);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:10000;
-padding:20px;
-}
-
-.checkout-box{
-width:100%;
-max-width:650px;
-background:#141414;
-border-radius:30px;
-padding:35px;
-border:1px solid rgba(255,255,255,.06);
-}
-
-.input,
-textarea,
-select{
-width:100%;
-padding:18px;
-margin-top:18px;
-border:none;
-border-radius:18px;
-background:#101010;
-color:white;
-font-size:1rem;
-border:1px solid rgba(255,255,255,.05);
-outline:none;
-}
-
-textarea{
-min-height:120px;
-resize:vertical;
-}
-
-.submit-btn{
-margin-top:25px;
-padding:18px;
-width:100%;
-border:none;
-border-radius:18px;
-background:linear-gradient(90deg,#ff1f1f,#d40000);
-color:white;
-font-weight:800;
-cursor:pointer;
-}
-
+/* FOOTER */
 footer{
-margin-top:70px;
-padding:35px;
 text-align:center;
-border-top:1px solid rgba(255,255,255,.05);
+padding:30px;
 color:#777;
+margin-top:60px;
 }
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:3rem;
-}
-
-.cart{
-position:relative;
-top:auto;
-right:auto;
-width:100%;
-margin-bottom:35px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-WBX Electrical
-</div>
-
+<div class="logo">WBX Electrical</div>
+<nav>
+<a href="#store">Store</a>
+<a href="#request">Request</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-
 <div>
-
-<h1>
-WBX Electrical Store
-</h1>
-
-<p>
-Performance E-Bike & MTB Parts
-</p>
-
+<h1>WBX Electrical</h1>
+<p>E-Bike & MTB Performance Parts</p>
 </div>
-
 </section>
 
 <div class="container">
 
-<div class="cart">
-
-<h2>
-🛒 Cart (<span id="cart-count">0</span>)
-</h2>
-
-<div id="cart-items"></div>
-
-<div class="total">
-Total: $<span id="cart-total">0</span> AUD
+<!-- TRUST -->
+<div class="trust">
+<div class="trust-card">Compatibility Help</div>
+<div class="trust-card">Custom Sourcing</div>
+<div class="trust-card">Support Team</div>
+<div class="trust-card">Fast Response</div>
 </div>
 
-<button class="checkout" onclick="openCheckout()">
-Checkout
-</button>
+<!-- SERVICES -->
+<h2 class="section-title">Services</h2>
+<div class="services">
+<div class="service-card">Controllers & Displays</div>
+<div class="service-card">Throttle & Brakes</div>
+<div class="service-card">Conversion Kits</div>
+</div>
 
+<!-- STORE -->
+<section class="store" id="store">
+
+<h2 class="section-title">Store</h2>
+<p class="section-text">Add to cart products below</p>
+
+<div class="cart">
+<h3>Cart (<span id="count">0</span>)</h3>
+<div id="cart"></div>
 </div>
 
 <div class="products">
 
-<!-- PRODUCT 1 -->
 <div class="card">
 <img src="product1.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Controller</h3>
+<div class="price">$200</div>
+<button onclick="add('Controller',200)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 2 -->
 <div class="card">
 <img src="product2.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Display</h3>
+<div class="price">$50</div>
+<button onclick="add('Display',50)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 3 -->
 <div class="card">
 <img src="product3.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Throttle</h3>
+<div class="price">$25</div>
+<button onclick="add('Throttle',25)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 4 -->
 <div class="card">
 <img src="product4.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Brake Set</h3>
+<div class="price">$40</div>
+<button onclick="add('Brake Set',40)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 5 -->
 <div class="card">
 <img src="product5.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Battery Bag</h3>
+<div class="price">$30</div>
+<button onclick="add('Battery Bag',30)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 6 -->
 <div class="card">
 <img src="product6.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Conversion Kit</h3>
+<div class="price">$300</div>
+<button onclick="add('Conversion Kit',300)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 7 -->
 <div class="card">
 <img src="product7.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>Rotor</h3>
+<div class="price">$20</div>
+<button onclick="add('Rotor',20)">Add</button>
 </div>
 </div>
 
-<!-- PRODUCT 8 -->
 <div class="card">
 <img src="product8.jpg">
 <div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
-</div>
-</div>
-
-<!-- PRODUCT 9 -->
-<div class="card">
-<img src="product9.jpg">
-<div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
-</div>
-</div>
-
-<!-- PRODUCT 10 -->
-<div class="card">
-<img src="product10.jpg">
-<div class="card-content">
-<h3>Product Name</h3>
-<p>Product description.</p>
-<div class="price">$0 AUD</div>
-<button onclick="addToCart('Product Name',0)">
-Add To Cart
-</button>
+<h3>LED Kit</h3>
+<div class="price">$60</div>
+<button onclick="add('LED Kit',60)">Add</button>
 </div>
 </div>
 
 </div>
+</section>
 
-</div>
+<!-- REQUEST -->
+<section class="request-section" id="request">
+<h2>Request Parts</h2>
 
-<footer>
-© 2026 WBX Electrical
-</footer>
+<input class="input" id="bike" placeholder="Bike Model">
+<input class="input" id="voltage" placeholder="Voltage">
 
-<div class="checkout-modal" id="checkoutModal">
+<textarea id="parts" placeholder="What do you need?"></textarea>
 
-<div class="checkout-box">
-
-<h2>
-Checkout
-</h2>
-
-<input
-class="input"
-id="name"
-placeholder="Full Name"
->
-
-<select
-class="input"
-id="contactMethod"
->
-
+<select class="input" id="contact">
 <option>Email</option>
 <option>SMS</option>
 <option>Instagram</option>
 <option>Snapchat</option>
-
 </select>
 
-<input
-class="input"
-id="contactInfo"
-placeholder="Email / Phone / Username"
->
+<input class="input" id="contactInfo" placeholder="Contact Info">
 
-<textarea
-id="address"
-placeholder="Shipping Address"
-></textarea>
-
-<button
-class="submit-btn"
-onclick="submitOrder()">
-Place Order
-</button>
+<button onclick="send()">Send Request</button>
+</section>
 
 </div>
 
-</div>
+<footer id="contact">
+© 2026 WBX Electrical
+</footer>
 
 <script>
 
-let cart =
-JSON.parse(localStorage.getItem('cart')) || [];
+let cart=[];
 
-function saveCart(){
-localStorage.setItem('cart',JSON.stringify(cart));
-}
-
-function addToCart(name,price){
-
+function add(name,price){
 cart.push({name,price});
-
-saveCart();
-updateCart();
-
+update();
 }
 
-function removeItem(index){
-
-cart.splice(index,1);
-
-saveCart();
-updateCart();
-
-}
-
-function updateCart(){
-
-const cartItems =
-document.getElementById('cart-items');
-
-const cartCount =
-document.getElementById('cart-count');
-
-const cartTotal =
-document.getElementById('cart-total');
-
-cartItems.innerHTML='';
-
+function update(){
+let c=document.getElementById("cart");
+let count=document.getElementById("count");
+c.innerHTML="";
 let total=0;
 
-cart.forEach((item,index)=>{
-
-total += item.price;
-
-cartItems.innerHTML += `
-<div class="cart-item">
-<div>
-${item.name}<br>
-$${item.price}
-</div>
-
-<button class="remove-btn"
-onclick="removeItem(${index})">
-X
-</button>
-
-</div>
-`;
-
+cart.forEach(i=>{
+total+=i.price;
+c.innerHTML+=`<div class="cart-item">${i.name} $${i.price}</div>`;
 });
 
-cartCount.innerText = cart.length;
-cartTotal.innerText = total;
-
+count.innerText=cart.length;
 }
 
-updateCart();
+async function send(){
 
-function openCheckout(){
-
-if(cart.length===0){
-alert('Cart Empty');
-return;
-}
-
-document.getElementById('checkoutModal')
-.style.display='flex';
-
-}
-
-async function submitOrder(){
-
-const name =
-document.getElementById('name').value;
-
-const contactMethod =
-document.getElementById('contactMethod').value;
-
-const contactInfo =
-document.getElementById('contactInfo').value;
-
-const address =
-document.getElementById('address').value;
-
-let products = '';
-let total = 0;
-
-cart.forEach(item=>{
-
-products += `${item.name} - $${item.price}\n`;
-
-total += item.price;
-
-});
-
-await fetch("YOUR_WEBAPP_URL",{
-
+await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec",{
 method:"POST",
-
 body:JSON.stringify({
-
-name,
-contactMethod,
-contactInfo,
-address,
-products,
-total
-
+bike:document.getElementById("bike").value,
+voltage:document.getElementById("voltage").value,
+parts:document.getElementById("parts").value,
+contactMethod:document.getElementById("contact").value,
+contactInfo:document.getElementById("contactInfo").value,
+cart:cart
 })
-
 });
 
-alert("Order Submitted");
-
-cart = [];
-
-saveCart();
-updateCart();
-
-document.getElementById('checkoutModal')
-.style.display='none';
-
+alert("Sent");
+cart=[];
+update();
 }
 
 </script>

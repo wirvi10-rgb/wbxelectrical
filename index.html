@@ -514,30 +514,16 @@ button.disabled = true;
 
 try{
 
-await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-bike:document.getElementById("bike").value,
-
-voltage:document.getElementById("voltage").value,
-
-parts:document.getElementById("parts").value,
-
-contactMethod:document.getElementById("contact").value,
-
-contactInfo:document.getElementById("contactInfo").value,
-
-cart: cart
-
+await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec", {
+method: "POST",
+body: new URLSearchParams({
+bike: document.getElementById("bike").value,
+voltage: document.getElementById("voltage").value,
+parts: document.getElementById("parts").value,
+contactMethod: document.getElementById("contact").value,
+contactInfo: document.getElementById("contactInfo").value,
+cart: JSON.stringify(cart)
 })
-
 });
 
 alert("Request Sent");

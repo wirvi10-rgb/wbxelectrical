@@ -153,24 +153,24 @@ let products=[];
 const base = [
 ["Controller 30A",200,"ebike"],
 ["Controller 45A",260,"ebike"],
-["E-Bike Display SW900",50,"ebike"],
+["E-Bike Display SW900",80,"ebike"],
 ["E-Bike Display UKC1",90,"ebike"],
-["Thumb Throttle",25,"ebike"],
-["Brake Sensor Kit",40,"ebike"],
-["PAS Sensor",20,"ebike"],
-["Torque Arm Heavy Duty",30,"ebike"],
+["Thumb Throttle",40,"ebike"],
+["Brake Sensor Kit",50,"ebike"],
+["PAS Sensor",40,"ebike"],
+["Torque Arm Heavy Duty",25,"ebike"],
 ["Battery Mount Plate",35,"ebike"],
 ["DC Converter 12V",40,"ebike"],
 
-["48V Battery Pack",600,"ebike"],
-["52V Battery Pack",700,"ebike"],
-["72V Battery Pack",900,"ebike"],
+["48V E-Bike Battery",600,"ebike","battery.jpg"],
+["52V E-Bike Battery",700,"ebike","battery.jpg"],
+["72V E-Bike Battery",900,"ebike","battery.jpg"],
 ["BMS Protection Board",80,"ebike"],
-["XT60 Connector Set",10,"ebike"],
+["XT60 Connector Set",20,"ebike"],
 ["Waterproof Wiring Kit",25,"ebike"],
-["Fuse Protection Kit",15,"ebike"],
+["Fuse Protection Kit",20,"ebike"],
 ["Battery Carry Bag XL",35,"ebike"],
-["Power Switch Key",12,"ebike"],
+["Power Switch Key",30,"ebike"],
 ["Voltage Display Meter",20,"ebike"],
 
 ["MTB Hydraulic Brake Set",120,"mtb"],
@@ -191,19 +191,19 @@ const base = [
 ["Dirt Bike Exhaust Performance",180,"dirt"],
 ["Dirt Bike Clutch Kit",120,"dirt"],
 ["Dirt Bike Tire Set Knobby",110,"dirt"],
-["Dirt Bike Grip Set Soft",20,"dirt"],
+["Dirt Bike Grip Set Soft",25,"dirt"],
 ["Dirt Bike Fork Seal Kit",40,"dirt"],
 ["Dirt Bike Air Filter Foam",25,"dirt"],
 
-["Mid Drive Conversion Kit",450,"kit"],
-["Hub Motor Conversion Kit",400,"kit"],
+["Mid Drive Conversion Kit",1100,"kit"],
+["Hub Motor for Conversion Kit",400,"kit"],
 ["Full E-Bike Wiring Kit",60,"kit"],
 ["Torque Arm Kit Heavy",35,"kit"],
-["Complete E-Bike Conversion Kit",850,"kit"],
-["Rear Hub Motor 1500W",300,"kit"],
-["Front Hub Motor 1000W",280,"kit"],
-["Controller Kit Combo 72V",500,"kit"],
-["Throttle Kit Universal",40,"kit"],
+["Complete E-Bike Conversion Kit",1050,"kit"],
+["Rear Hub Motor 1500W",500,"kit"],
+["Front Hub Motor 1000W",400,"kit"],
+["Controller Kit Combo 72V",900,"kit"],
+["Throttle Kit Universal",90,"kit"],
 ["Display Kit Advanced",70,"kit"]
 ];
 
@@ -211,13 +211,12 @@ const base = [
 for(let i=0;i<120;i++){
 let b = base[i % base.length];
 products.push({
-id:i,
-name:b[0],
-price:b[1],
-cat:b[2],
-img:"https://via.placeholder.com/300x200?text=WBX"
+id: i,
+name: b[0],
+price: b[1],
+cat: b[2],
+img: b[3] || "placeholder.jpg"
 });
-}
 
 function render(){
 let store=document.getElementById("store");

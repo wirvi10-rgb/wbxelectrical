@@ -182,6 +182,32 @@ padding:15px;
 border-radius:20px;
 max-height:70vh;
 overflow:auto;
+z-index:999;
+border:1px solid rgba(255,255,255,.05);
+}
+
+@media(max-width:900px){
+
+.cart{
+position:relative;
+top:auto;
+right:auto;
+width:100%;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:3rem;
+}
+.card{
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
+
 }
 
 .cart-item{
@@ -284,7 +310,7 @@ margin-top:60px;
 <div class="card-content">
 <h3> SW900 Display</h3>
 <div class="price">$50</div>
-<button onclick="add('Display',50)">Add</button>
+<button onclick="add('SW900 Display',50)">Add</button>
 </div>
 </div>
 
@@ -293,7 +319,7 @@ margin-top:60px;
 <div class="card-content">
 <h3>UKC1 Display</h3>
 <div class="price">$100</div>
-<button onclick="add('Display',100)">Add</button>
+<button onclick="add('UKC1 Display',100)">Add</button>
 </div>
 </div>
 
@@ -383,44 +409,160 @@ margin-top:60px;
 
 <script>
 
-let cart=[];
+let cart = JSON.parse(localStorage.getItem("wbxCart")) || [];
 
-function add(name,price){
-cart.push({name,price});
 update();
+
+function saveCart(){
+localStorage.setItem("wbxCart", JSON.stringify(cart));
+}
+
+function add(name, price){
+
+cart.push({name, price});
+
+saveCart();
+update();
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+update();
+
 }
 
 function update(){
-let c=document.getElementById("cart");
-let count=document.getElementById("count");
-c.innerHTML="";
-let total=0;
 
-cart.forEach(i=>{
-total+=i.price;
-c.innerHTML+=`<div class="cart-item">${i.name} $${i.price}</div>`;
+let c = document.getElementById("cart");
+let count = document.getElementById("count");
+
+c.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((i,index)=>{
+
+total += i.price;
+
+c.innerHTML += `
+<div class="cart-item">
+
+<div>
+${i.name}<br>
+$${i.price}
+</div>
+
+<button onclick="removeItem(${index})"
+style="
+width:auto;
+padding:6px 10px;
+border:none;
+border-radius:8px;
+background:red;
+color:white;
+cursor:pointer;
+">
+X
+</button>
+
+</div>
+`;
+
 });
 
-count.innerText=cart.length;
+if(cart.length === 0){
+
+c.innerHTML = `
+<div style="
+padding:10px;
+color:#888;
+">
+Cart Empty
+</div>
+`;
+
+}else{
+
+c.innerHTML += `
+<div style="
+margin-top:15px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,.08);
+font-weight:800;
+font-size:1.1rem;
+">
+Total: $${total}
+</div>
+`;
+
+}
+
+count.innerText = cart.length;
+
 }
 
 async function send(){
 
+const button = event.target;
+
+button.innerText = "Sending...";
+button.disabled = true;
+
+try{
+
 await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec",{
+
 method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
 body:JSON.stringify({
+
 bike:document.getElementById("bike").value,
+
 voltage:document.getElementById("voltage").value,
+
 parts:document.getElementById("parts").value,
+
 contactMethod:document.getElementById("contact").value,
+
 contactInfo:document.getElementById("contactInfo").value,
-cart:cart
+
+cart: cart
+
 })
+
 });
 
-alert("Sent");
-cart=[];
+alert("Request Sent");
+
+cart = [];
+
+saveCart();
+
 update();
+
+document.getElementById("bike").value = "";
+document.getElementById("voltage").value = "";
+document.getElementById("parts").value = "";
+document.getElementById("contactInfo").value = "";
+
+}
+catch(err){
+
+alert("Failed To Send");
+
+}
+
+button.innerText = "Send Request";
+button.disabled = false;
+
 }
 
 </script>

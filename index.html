@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WBX Electrical</title>
+<title>WBX Electrical Store</title>
 
 <style>
 
@@ -15,12 +14,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
 background:
-radial-gradient(circle at top,#2a0000 0%,#111111 35%);
+radial-gradient(circle at top,#2b0000 0%,#0f0f0f 35%);
 color:white;
 overflow-x:hidden;
 }
@@ -29,7 +27,7 @@ header{
 position:sticky;
 top:0;
 z-index:1000;
-background:rgba(10,10,10,.88);
+background:rgba(10,10,10,.9);
 backdrop-filter:blur(14px);
 padding:20px 35px;
 display:flex;
@@ -41,32 +39,16 @@ border-bottom:1px solid rgba(255,255,255,.05);
 .logo{
 font-size:2rem;
 font-weight:800;
-background:linear-gradient(90deg,#ff1f1f,#ff8080);
+background:linear-gradient(90deg,#ff0000,#ff7b7b);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-nav{
-display:flex;
-gap:25px;
-}
-
-nav a{
-text-decoration:none;
-color:#d0d0d0;
-font-weight:600;
-transition:.25s;
-}
-
-nav a:hover{
-color:#ff4040;
-}
-
 .hero{
-height:85vh;
+height:60vh;
 background:
-linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.88)),
-url('https://images.unsplash.com/photo-1511994298241-608e28f14fde?q=80&w=1600&auto=format&fit=crop')
+linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.85)),
+url('banner.jpg')
 center/cover;
 display:flex;
 justify-content:center;
@@ -75,149 +57,161 @@ text-align:center;
 padding:20px;
 }
 
-.hero-content{
-max-width:950px;
-}
-
-.hero-content h1{
-font-size:5rem;
+.hero h1{
+font-size:4.5rem;
 font-weight:800;
 line-height:1;
-letter-spacing:-2px;
 }
 
-.hero-content p{
-margin-top:24px;
+.hero p{
+margin-top:20px;
 font-size:1.2rem;
-color:#cfcfcf;
-line-height:1.7;
-}
-
-.hero-buttons{
-margin-top:35px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.hero-btn{
-padding:17px 32px;
-border:none;
-border-radius:18px;
-font-weight:800;
-cursor:pointer;
-transition:.25s;
-font-size:1rem;
-}
-
-.primary-btn{
-background:linear-gradient(90deg,#ff1f1f,#d40000);
-color:white;
-}
-
-.secondary-btn{
-background:#1e1e1e;
-color:white;
-border:1px solid rgba(255,255,255,.05);
-}
-
-.hero-btn:hover{
-transform:translateY(-3px);
-}
-
-.trust{
-max-width:1450px;
-margin:auto;
-padding:40px 25px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.trust-card{
-background:#181818;
-padding:25px;
-border-radius:25px;
-border:1px solid rgba(255,255,255,.05);
-}
-
-.trust-card h3{
-margin-bottom:12px;
-color:#ff4d4d;
+color:#d0d0d0;
 }
 
 .container{
-max-width:1450px;
+max-width:1500px;
 margin:auto;
-padding:40px 25px;
+padding:50px 25px;
 }
 
-.section-title{
-font-size:2.8rem;
-margin-bottom:18px;
-}
-
-.section-text{
-color:#c4c4c4;
-line-height:1.8;
-max-width:850px;
-margin-bottom:50px;
-}
-
-.services{
+.products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
-margin-bottom:80px;
 }
 
-.service-card{
-background:linear-gradient(180deg,#191919,#131313);
-padding:30px;
-border-radius:30px;
+.card{
+background:linear-gradient(180deg,#191919,#121212);
+border-radius:28px;
+overflow:hidden;
 border:1px solid rgba(255,255,255,.05);
 transition:.3s;
 }
 
-.service-card:hover{
+.card:hover{
 transform:translateY(-8px);
-border-color:rgba(255,0,0,.2);
+border-color:rgba(255,0,0,.25);
 }
 
-.service-card h3{
-font-size:1.5rem;
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-content{
+padding:22px;
+}
+
+.card h3{
+font-size:1.4rem;
+margin-bottom:10px;
+}
+
+.card p{
+color:#bdbdbd;
+line-height:1.6;
+margin-bottom:14px;
+}
+
+.price{
+font-size:1.2rem;
+font-weight:800;
+color:#ff4d4d;
 margin-bottom:15px;
 }
 
-.service-card p{
-color:#c3c3c3;
-line-height:1.7;
+.card button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#ff1f1f,#d40000);
+color:white;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
 }
 
-.request-section{
-background:linear-gradient(180deg,#191919,#131313);
-padding:45px;
-border-radius:35px;
-border:1px solid rgba(255,255,255,.05);
-margin-bottom:80px;
+.card button:hover{
+transform:translateY(-2px);
 }
 
-.request-section h2{
-font-size:2.5rem;
+.cart{
+position:fixed;
+top:100px;
+right:20px;
+width:340px;
+max-height:80vh;
+overflow:auto;
+background:rgba(15,15,15,.96);
+padding:24px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.06);
+z-index:999;
+}
+
+.cart h2{
 margin-bottom:20px;
 }
 
-.request-section p{
-color:#c3c3c3;
-margin-bottom:30px;
-line-height:1.7;
+.cart-item{
+background:#1f1f1f;
+padding:12px;
+border-radius:14px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.form-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.remove-btn{
+background:red;
+border:none;
+color:white;
+padding:6px 10px;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
+}
+
+.total{
+margin-top:15px;
+font-size:1.2rem;
+font-weight:800;
+}
+
+.checkout{
+width:100%;
+margin-top:15px;
+padding:15px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#ff1f1f,#d40000);
+color:white;
+font-weight:800;
+cursor:pointer;
+}
+
+.checkout-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:10000;
+padding:20px;
+}
+
+.checkout-box{
+width:100%;
+max-width:650px;
+background:#141414;
+border-radius:30px;
+padding:35px;
+border:1px solid rgba(255,255,255,.06);
 }
 
 .input,
@@ -225,6 +219,7 @@ textarea,
 select{
 width:100%;
 padding:18px;
+margin-top:18px;
 border:none;
 border-radius:18px;
 background:#101010;
@@ -235,50 +230,20 @@ outline:none;
 }
 
 textarea{
-min-height:160px;
+min-height:120px;
 resize:vertical;
-margin-top:20px;
-}
-
-select,
-#contactInfo{
-margin-top:20px;
 }
 
 .submit-btn{
 margin-top:25px;
-padding:18px 30px;
+padding:18px;
+width:100%;
 border:none;
 border-radius:18px;
 background:linear-gradient(90deg,#ff1f1f,#d40000);
 color:white;
 font-weight:800;
 cursor:pointer;
-font-size:1rem;
-transition:.25s;
-}
-
-.submit-btn:hover{
-transform:translateY(-2px);
-}
-
-.contact{
-background:linear-gradient(180deg,#1a1a1a,#131313);
-padding:50px;
-border-radius:35px;
-border:1px solid rgba(255,255,255,.05);
-text-align:center;
-}
-
-.contact h2{
-font-size:2.4rem;
-margin-bottom:18px;
-}
-
-.contact p{
-color:#c4c4c4;
-margin:12px 0;
-line-height:1.7;
 }
 
 footer{
@@ -291,12 +256,16 @@ color:#777;
 
 @media(max-width:900px){
 
-.hero-content h1{
+.hero h1{
 font-size:3rem;
 }
 
-.form-grid{
-grid-template-columns:1fr;
+.cart{
+position:relative;
+top:auto;
+right:auto;
+width:100%;
+margin-bottom:35px;
 }
 
 }
@@ -312,211 +281,175 @@ grid-template-columns:1fr;
 WBX Electrical
 </div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#request">Request Parts</a>
-<a href="#contact">Contact</a>
-</nav>
-
 </header>
 
 <section class="hero">
 
-<div class="hero-content">
+<div>
 
 <h1>
-Custom E-Bike & MTB Parts Sourcing
+WBX Electrical Store
 </h1>
 
 <p>
-Controllers • Displays • Throttles • Brakes • Upgrade Parts
-
-<br><br>
-
-Tell us your setup and we’ll help source compatible parts for your build.
+Performance E-Bike & MTB Parts
 </p>
 
-<div class="hero-buttons">
-
-<button class="hero-btn primary-btn"
-onclick="document.getElementById('request').scrollIntoView()">
-Request Parts
-</button>
-
-<button class="hero-btn secondary-btn"
-onclick="document.getElementById('contact').scrollIntoView()">
-Contact
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="trust">
-
-<div class="trust-card">
-<h3>Compatibility Help</h3>
-<p>
-We help identify compatible upgrade parts for your setup.
-</p>
-</div>
-
-<div class="trust-card">
-<h3>Custom Sourcing</h3>
-<p>
-Can’t find a part? We help source hard-to-find components.
-</p>
-</div>
-
-<div class="trust-card">
-<h3>Australia Based</h3>
-<p>
-Independent MTB & E-Bike parts sourcing service.
-</p>
-</div>
-
-<div class="trust-card">
-<h3>Direct Support</h3>
-<p>
-Talk directly with us about your build and upgrades.
-</p>
 </div>
 
 </section>
 
 <div class="container">
 
-<h2 class="section-title" id="services">
-What We Help Source
-</h2>
-
-<p class="section-text">
-WBX Electrical helps source and recommend compatible MTB and E-Bike parts for custom builds, conversion kits and upgrades.
-</p>
-
-<div class="services">
-
-<div class="service-card">
-<h3>Controllers & Displays</h3>
-<p>
-High performance controllers, SW900 displays, UKC1 units and wiring components.
-</p>
-</div>
-
-<div class="service-card">
-<h3>Throttle & Brake Upgrades</h3>
-<p>
-Throttle replacements, brake systems, levers and riding upgrades.
-</p>
-</div>
-
-<div class="service-card">
-<h3>Custom Build Support</h3>
-<p>
-Help with conversion kits, MTB builds, compatibility and sourcing rare parts.
-</p>
-</div>
-
-</div>
-
-<section class="request-section" id="request">
+<div class="cart">
 
 <h2>
-Request Parts
+🛒 Cart (<span id="cart-count">0</span>)
 </h2>
 
-<p>
-Tell us about your setup and what parts you’re looking for.
-We’ll contact you with compatible options and pricing.
-</p>
+<div id="cart-items"></div>
 
-<div class="form-grid">
-
-<input
-class="input"
-id="bike"
-type="text"
-placeholder="Bike / Conversion Kit Model"
->
-
-<input
-class="input"
-id="voltage"
-type="text"
-placeholder="Voltage (48V / 52V etc)"
->
-
+<div class="total">
+Total: $<span id="cart-total">0</span> AUD
 </div>
 
-<select
-class="input"
-id="contactMethod"
->
-
-<option value="">
-Preferred Contact Method
-</option>
-
-<option>Email</option>
-
-<option>SMS</option>
-
-<option>Instagram</option>
-
-<option>Snapchat</option>
-
-</select>
-
-<input
-class="input"
-id="contactInfo"
-type="text"
-placeholder="Enter your email, phone number, Instagram or Snapchat username"
->
-
-<textarea
-id="parts"
-placeholder="What parts are you looking for? Include as much detail as possible."
-></textarea>
-
-<button
-class="submit-btn"
-onclick="sendRequest()">
-Send Request
+<button class="checkout" onclick="openCheckout()">
+Checkout
 </button>
 
-</section>
+</div>
 
-<div class="contact" id="contact">
+<div class="products">
 
-<h2>
-WBX Electrical
-</h2>
+<!-- PRODUCT 1 -->
+<div class="card">
+<img src="product1.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<p>
-Performance MTB & E-Bike Parts Sourcing
-</p>
+<!-- PRODUCT 2 -->
+<div class="card">
+<img src="product2.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<br>
+<!-- PRODUCT 3 -->
+<div class="card">
+<img src="product3.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<p>
-📧 support@wbxelectrical.com
-</p>
+<!-- PRODUCT 4 -->
+<div class="card">
+<img src="product4.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<p>
-📸 Instagram: @wbxelectrical
-</p>
+<!-- PRODUCT 5 -->
+<div class="card">
+<img src="product5.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<p>
-🇦🇺 Australia
-</p>
+<!-- PRODUCT 6 -->
+<div class="card">
+<img src="product6.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
-<p>
-Custom sourcing • Compatibility help • Upgrade support
-</p>
+<!-- PRODUCT 7 -->
+<div class="card">
+<img src="product7.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<!-- PRODUCT 8 -->
+<div class="card">
+<img src="product8.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<!-- PRODUCT 9 -->
+<div class="card">
+<img src="product9.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<!-- PRODUCT 10 -->
+<div class="card">
+<img src="product10.jpg">
+<div class="card-content">
+<h3>Product Name</h3>
+<p>Product description.</p>
+<div class="price">$0 AUD</div>
+<button onclick="addToCart('Product Name',0)">
+Add To Cart
+</button>
+</div>
+</div>
 
 </div>
 
@@ -526,15 +459,139 @@ Custom sourcing • Compatibility help • Upgrade support
 © 2026 WBX Electrical
 </footer>
 
+<div class="checkout-modal" id="checkoutModal">
+
+<div class="checkout-box">
+
+<h2>
+Checkout
+</h2>
+
+<input
+class="input"
+id="name"
+placeholder="Full Name"
+>
+
+<select
+class="input"
+id="contactMethod"
+>
+
+<option>Email</option>
+<option>SMS</option>
+<option>Instagram</option>
+<option>Snapchat</option>
+
+</select>
+
+<input
+class="input"
+id="contactInfo"
+placeholder="Email / Phone / Username"
+>
+
+<textarea
+id="address"
+placeholder="Shipping Address"
+></textarea>
+
+<button
+class="submit-btn"
+onclick="submitOrder()">
+Place Order
+</button>
+
+</div>
+
+</div>
+
 <script>
 
-async function sendRequest(){
+let cart =
+JSON.parse(localStorage.getItem('cart')) || [];
 
-const bike =
-document.getElementById('bike').value;
+function saveCart(){
+localStorage.setItem('cart',JSON.stringify(cart));
+}
 
-const voltage =
-document.getElementById('voltage').value;
+function addToCart(name,price){
+
+cart.push({name,price});
+
+saveCart();
+updateCart();
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems =
+document.getElementById('cart-items');
+
+const cartCount =
+document.getElementById('cart-count');
+
+const cartTotal =
+document.getElementById('cart-total');
+
+cartItems.innerHTML='';
+
+let total=0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+cartItems.innerHTML += `
+<div class="cart-item">
+<div>
+${item.name}<br>
+$${item.price}
+</div>
+
+<button class="remove-btn"
+onclick="removeItem(${index})">
+X
+</button>
+
+</div>
+`;
+
+});
+
+cartCount.innerText = cart.length;
+cartTotal.innerText = total;
+
+}
+
+updateCart();
+
+function openCheckout(){
+
+if(cart.length===0){
+alert('Cart Empty');
+return;
+}
+
+document.getElementById('checkoutModal')
+.style.display='flex';
+
+}
+
+async function submitOrder(){
+
+const name =
+document.getElementById('name').value;
 
 const contactMethod =
 document.getElementById('contactMethod').value;
@@ -542,24 +599,46 @@ document.getElementById('contactMethod').value;
 const contactInfo =
 document.getElementById('contactInfo').value;
 
-const parts =
-document.getElementById('parts').value;
+const address =
+document.getElementById('address').value;
 
-await fetch("https://script.google.com/macros/s/AKfycby9BDz5zPaF3OlzRT4brhnS8_lUMZVhXntkrpACb2lDKt2fmACcol-VzR2BJW5CUu4z/exec",{
+let products = '';
+let total = 0;
+
+cart.forEach(item=>{
+
+products += `${item.name} - $${item.price}\n`;
+
+total += item.price;
+
+});
+
+await fetch("YOUR_WEBAPP_URL",{
 
 method:"POST",
 
 body:JSON.stringify({
-bike,
-voltage,
+
+name,
 contactMethod,
 contactInfo,
-parts
+address,
+products,
+total
+
 })
 
 });
 
-alert("Request Sent");
+alert("Order Submitted");
+
+cart = [];
+
+saveCart();
+updateCart();
+
+document.getElementById('checkoutModal')
+.style.display='none';
 
 }
 
